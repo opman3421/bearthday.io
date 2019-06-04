@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bearthday</title>
+		<style type="text/css">
+		body {
+			background: #93dee2;
+		}
+
+		.countdownContainer{
+			position: absolute;;
+			top: 50%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			background: #93dee2;
+			color: #00858c
+		}
+
+		.info {
+			font-size: 100px;
+		}
+
+		a:link, a:visited {
+			position: absolute;;
+			top: 80%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-80%);
+			background-color: #00858c;
+			color: white;
+			padding: 15px 25px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 40px;
+			border-radius: 10px;
+		}
+
+		a:hover, a:active {
+			background-color: #0098a0 ;
+		}
+
+		</style>
+	</head>
+	<body>
+		<table class="countdownContainer">
+			<tr class="info">
+				<td colspan="4">B e a r t h d a y</td>
+			</tr>
+			<tr class="info">
+				<td id="days">120</td>
+				<td id="hours">4</td>
+				<td id="minutes">12</td>
+				<td id="seconds">22</td>
+			</tr>
+			<tr>
+				<td>Days</td>
+				<td>Hours</td>
+				<td>Minutes</td>
+				<td>Seconds</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+
+			function countdown(){
+				var now = new Date();
+				var eventDate = new Date(2019, 5, 5, 18,0,0,0);
+
+				var currentTime = now.getTime();
+				var eventTime = eventDate.getTime();
+
+				var remTime = eventTime - currentTime;
+						
+				var s = Math.floor(remTime / 1000);
+				var m = Math.floor(s / 60);
+				var h = Math.floor(m / 60);
+				var d = Math.floor(h / 24);
+
+				h %= 24;
+				m %= 60;
+				s %= 60;
+
+				d = (d < 0) ?  d + 1 : d;
+				h = (h < 0) ?  h + 1 : h;
+				m = (m < 0) ?  m + 1 : m;
+				s = (s < 0) ?  s : s;
+
+				document.getElementById("days").textContent = d;
+				document.getElementById("days").innerText = d;
+
+				document.getElementById("hours").textContent = h;
+				document.getElementById("minutes").textContent = m;
+				document.getElementById("seconds").textContent = s;
+
+				setTimeout(countdown, 1000);
+			}
+
+			countdown();
+			
+			function LINK() {
+				var now = new Date();
+				var eventDate = new Date(2019, 5, 5, 18,0,0,0);
+
+				var currentTime = now.getTime();
+				var eventTime = eventDate.getTime();
+
+				var remTime = eventTime - currentTime;
+				var link;
+				if (currentTime > eventTime) {
+					link="https://drive.google.com/open?id=1pG3j5XtOV_XuLJnEZdNukVQ6t62fJy3R";
+				} else {
+					link="https://drive.google.com/open?id=1ayee2WSpXS5xxfVNkGtrjLqU9IAleUIC";
+				}
+				document.write('<a href="' + link + '" target="_blank">Surprise</a>');
+			}
+			
+			LINK();			
+		</script>
+	</body>
+</html>
